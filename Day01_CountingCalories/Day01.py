@@ -6,8 +6,8 @@
 # Update:   store in the top 3, shifting everyone down if necessary
 
 
-testing = False   #used for debuging messages and to pick the file
-stage_1 = True    #used for more complex coding changess
+testing = False   # used for debugging messages and to pick the file
+stage_1 = True    # used for more complex coding changes
 file2read = 'Day01_sample.txt' if testing else 'Day01_01.txt'
 
 
@@ -22,14 +22,14 @@ def read_file(a_file):
 
     with open(a_file) as f:
         for line_in in f.readlines():
-            if line_in in ['\n', '\r\n']:   # if its a blank line then its a new elf
-                #swap the leader board of total calories
+            if line_in in ['\n', '\r\n']:   # if it's a blank line then it's a new elf
+                # swap the leader board of total calories
                 if current_calories > max_calories:
-                        max_calories3 = max_calories2
-                        max_calories2 = max_calories
-                        max_calories = current_calories
-                        which_elf = elf_counter
-                elif  current_calories > max_calories2:
+                    max_calories3 = max_calories2
+                    max_calories2 = max_calories
+                    max_calories = current_calories
+                    which_elf = elf_counter
+                elif current_calories > max_calories2:
                     max_calories3 = max_calories2
                     max_calories2 = current_calories
                 elif current_calories > max_calories3:
@@ -38,13 +38,13 @@ def read_file(a_file):
                 # debug messages during development
                 if testing:
                     print(f"found a elf # {elf_counter} with {current_calories} and current max = {max_calories}")
-                elf_counter += 1   # since its a new line , increase elf counter , not really needed
-                current_calories = 0   # reset the calorie counter
+                elf_counter += 1  # since it's a new line , increase elf counter , not really needed
+                current_calories = 0  # reset the calorie counter
 
-            else:    #not a new line so add this new value in with the existing total
+            else:  # not a new line so add this new value in with the existing total
                 current_calories += int(line_in)
 
-       # done reading the file, need to redo the max checking
+        # done reading the file, need to redo the max checking
         # swap the leader board of total calories
         if current_calories > max_calories:
             max_calories3 = max_calories2
@@ -60,7 +60,8 @@ def read_file(a_file):
             print(f"found last elf # {elf_counter} with {current_calories} and current max = {max_calories}")
 
     print(f"The elf with the most calories is #{which_elf} with {max_calories}")
-    total_calories = max_calories + max_calories2    + max_calories3
+    total_calories = max_calories + max_calories2 + max_calories3
     print(f"Total Calories by top 3 elves = {total_calories}")
+
 
 read_file(file2read)

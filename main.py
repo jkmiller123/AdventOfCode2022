@@ -12,5 +12,6 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('PyCharm')
+    print(f"This does nothing yet,  haven't decided on how to proceed with the main branch.  will it call the most current")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
